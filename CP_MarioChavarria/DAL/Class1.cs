@@ -1,4 +1,4 @@
-﻿namespace CasoPractico1
+﻿namespace DAL
 {
     public class Class1
     {
