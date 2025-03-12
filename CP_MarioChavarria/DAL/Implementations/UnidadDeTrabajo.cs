@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Implementations
 {
-    class UnidadDeTrabajo : IUnidadDeTrabajo
+    public class UnidadDeTrabajo : IUnidadDeTrabajo
     {
 
         public IProgramasDAL ProgramasDAL { get; set; }

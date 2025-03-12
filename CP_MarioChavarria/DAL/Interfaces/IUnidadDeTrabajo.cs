@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    interface IUnidadDeTrabajo : IDisposable
+    public interface IUnidadDeTrabajo : IDisposable
     {
         IProgramasDAL ProgramasDAL { get; }
 

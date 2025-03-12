@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 #region DI
 builder.Services.AddDbContext<PeliculasContext>();
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProgramaService, ProgramaService>();
 builder.Services.AddScoped<IProgramasDAL, ProgramasDAL>();
 
 

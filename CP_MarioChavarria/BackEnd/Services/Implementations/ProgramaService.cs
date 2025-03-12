@@ -46,27 +46,49 @@ namespace BackEnd.Services.Implementations
 
                 _Unidad.Complete();
                 return programa;
+            } catch (Exception) 
+            {
+                throw; 
             }
         }
 
         public void Delete(int id)
         {
+            Programa programa = new Programa { ProgramaId = id };
+            _Unidad.ProgramasDAL.Remove(programa);
+            _Unidad.Complete();
             throw new NotImplementedException();
         }
 
         public ProgramaDTO GetById(int id)
         {
-            throw new NotImplementedException();
+            var programa = _Unidad.ProgramasDAL.Get(id);
+            return Convertir(programa);
         }
 
         public List<ProgramaDTO> GetProgramas()
         {
-            throw new NotImplementedException();
+            var programas = _Unidad.ProgramasDAL.GetAll();
+            List<ProgramaDTO> programaList = new List<ProgramaDTO>();
+            foreach (var programa in programas)
+            {
+                programaList.Add(Convertir(programa));
+            }
+            return programaList;
         }
 
         public ProgramaDTO Update(ProgramaDTO programa)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _Unidad.ProgramasDAL.Update(Convertir(programa));
+                _Unidad.Complete();
+                return programa;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
