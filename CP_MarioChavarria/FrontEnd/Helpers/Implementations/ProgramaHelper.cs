@@ -10,21 +10,42 @@ namespace FrontEnd.Helpers.Implementations
     {
         IServiceRepository _serviceRepository;
 
+        public ProgramaHelper(IServiceRepository serviceRepository)
+        {
+            this._serviceRepository = serviceRepository;
+        }
+
         ProgramaViewModel Convertir(ProgramaAPI programa) 
         {
-            ProgramaViewModel programaViewModel = new ProgramaViewModel
+            return new ProgramaViewModel 
+            {
+                ProgramaId = programa.ProgramaId,
+                Nombre = programa.Nombre,
+                Tipo = programa.Tipo,
+                Categoria = programa.Categoria
+
+            };
+
+
+            //ProgramaViewModel programaViewModel = new ProgramaViewModel
+            //{
+            //    ProgramaId = programa.ProgramaId,
+            //    Nombre = programa.Nombre,
+            //    Tipo = programa.Tipo,
+            //    Categoria = programa.Categoria
+            //};
+            //return programaViewModel;
+        }
+
+        ProgramaAPI Convertir(ProgramaViewModel programa) 
+        {
+            return new ProgramaAPI
             {
                 ProgramaId = programa.ProgramaId,
                 Nombre = programa.Nombre,
                 Tipo = programa.Tipo,
                 Categoria = programa.Categoria
             };
-            return programaViewModel;
-        }
-
-        public ProgramaHelper(IServiceRepository serviceRepository)
-        {
-            _serviceRepository = serviceRepository;
         }
 
         public ProgramaViewModel Add(ProgramaViewModel programa)
