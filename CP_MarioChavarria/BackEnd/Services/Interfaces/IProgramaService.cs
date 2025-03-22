@@ -4,11 +4,11 @@ namespace BackEnd.Services.Interfaces
 {
     public interface IProgramaService
     {
-
+        void AddPrograma(ProgramaDTO programa);
+        void UpdatePrograma(ProgramaDTO programa);
+        void DeletePrograma(int id);
         List<ProgramaDTO> GetProgramas();
-        ProgramaDTO Add (ProgramaDTO programa);
-        ProgramaDTO Update(ProgramaDTO programa);
-        void Delete(int id);
-        ProgramaDTO GetById (int id);
+        ProgramaDTO GetProgramaById(int id);
+
     }
 }

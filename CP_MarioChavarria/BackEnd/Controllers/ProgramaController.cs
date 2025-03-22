@@ -30,7 +30,7 @@ namespace BackEnd.Controllers
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
-            var programa = _programaService.GetById(id);
+            var programa = _programaService.GetProgramaById(id);
             return Ok(programa);
         }
 
@@ -38,21 +38,21 @@ namespace BackEnd.Controllers
         [HttpPost]
         public void Post([FromBody] ProgramaDTO programaDTO)
         {
-            _programaService.Add(programaDTO);
+            _programaService.AddPrograma(programaDTO);
         }
 
         // PUT api/<ProgramaController>/5
         [HttpPut]
         public void Put([FromBody] ProgramaDTO programaDTO)
         {
-            _programaService.Update(programaDTO);
+            _programaService.UpdatePrograma(programaDTO);
         }
 
         // DELETE api/<ProgramaController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _programaService.Delete(id);
+            _programaService.DeletePrograma(id);
         }
     }
 }
