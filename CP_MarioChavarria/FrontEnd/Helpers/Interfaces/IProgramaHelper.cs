@@ -4,11 +4,10 @@ namespace FrontEnd.Helpers.Interfaces
 {
     public interface IProgramaHelper
     {
-        List <ProgramaViewModel> GetProgramas();
-
-        ProgramaViewModel GetPrograma(int id);
-        ProgramaViewModel Add(ProgramaViewModel programa);
-        ProgramaViewModel Update(ProgramaViewModel programa);
-        void Delete(int id);
+        List <ProgramaViewModel> GetAll();
+        ProgramaViewModel GetById(int id);
+        ProgramaViewModel AddPrograma(ProgramaViewModel ProgramaViewModel);
+        ProgramaViewModel EditPrograma(ProgramaViewModel ProgramaViewModel);
+        void DeletePrograma(int id);
     }
 }

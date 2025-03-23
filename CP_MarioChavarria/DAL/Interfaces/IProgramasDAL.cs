@@ -9,6 +9,6 @@ namespace DAL.Interfaces
 {
     public interface IProgramasDAL: IDALGenerico<Programa>
     {
-        List<Programa> GetAllProgramas();
+
     }
 }

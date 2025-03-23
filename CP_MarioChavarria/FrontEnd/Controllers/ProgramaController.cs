@@ -16,21 +16,34 @@ namespace FrontEnd.Controllers
         // GET: ProgramaController
         public ActionResult Index()
         {
-            var Result = _programaHelper.GetProgramas();
-            return View(Result);
+            return View(_programaHelper.GetAll());
+
+            //var Result = _programaHelper.GetProgramas();
+            //return View(Result);
         }
 
         // GET: ProgramaController/Details/5
         public ActionResult Details(int id)
         {
-            var Result = _programaHelper.GetPrograma(id);
-            return View(Result);
+            ProgramaViewModel programa = _programaHelper.GetById(id);
+            return View(programa);
+
+
+
+            //var Result = _programaHelper.GetPrograma(id);
+            //return View(Result);
         }
 
         // GET: ProgramaController/Create
         public ActionResult Create()
         {
-            return View();
+            ProgramaViewModel programa = new ProgramaViewModel();
+            return View(programa);
+
+
+
+
+            //return View();
         }
 
         // POST: ProgramaController/Create
@@ -40,7 +53,7 @@ namespace FrontEnd.Controllers
         {
             try
             {
-                _programaHelper.Add(programa);
+                _programaHelper.AddPrograma(programa);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -52,43 +65,69 @@ namespace FrontEnd.Controllers
         // GET: ProgramaController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ProgramaViewModel programa = _programaHelper.GetById(id);
+            return View(programa);
         }
 
         // POST: ProgramaController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(ProgramaViewModel programa)
         {
-            try
+            try 
             {
-                return RedirectToAction(nameof(Index));
+                _programaHelper.EditPrograma(programa);
+                return RedirectToAction("Details", new { id = programa.ProgramaId });
             }
             catch
             {
                 return View();
             }
+
+
+
+            //try
+            //{
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: ProgramaController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ProgramaViewModel programa = _programaHelper.GetById(id);
+            return View(programa);
         }
 
         // POST: ProgramaController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(ProgramaViewModel programa)
         {
-            try
+            try 
             {
+                _programaHelper.DeletePrograma(programa.ProgramaId);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
                 return View();
             }
+
+
+
+            //try
+            //{
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
     }
 }
