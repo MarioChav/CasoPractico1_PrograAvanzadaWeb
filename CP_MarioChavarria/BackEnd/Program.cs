@@ -4,6 +4,7 @@ using DAL.Implementations;
 using DAL.Interfaces;
 using Entities.Entities;
 using Entities.Entities;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,10 @@ builder.Services.AddSwaggerGen();
 
 
 #region DI
-builder.Services.AddDbContext<PeliculasContext>();
+builder.Services.AddDbContext<PeliculasContext>(optionsAction => 
+                                                                optionsAction
+                                                                             .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
 builder.Services.AddScoped<IProgramaService, ProgramaService>();
 builder.Services.AddScoped<IProgramasDAL, ProgramasDAL>();
