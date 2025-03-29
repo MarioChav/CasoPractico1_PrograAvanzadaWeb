@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Entities
 {
-    class AuthDBContext : IdentityDbContext
+    public class AuthDBContext : IdentityDbContext
     {
         public AuthDBContext(DbContextOptions<AuthDBContext> options)
                 : base(options)

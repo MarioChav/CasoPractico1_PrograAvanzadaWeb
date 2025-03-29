@@ -4,6 +4,7 @@ using DAL.Implementations;
 using DAL.Interfaces;
 using Entities.Entities;
 using Entities.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,38 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+#region BD
+builder.Services.AddDbContext<PeliculasContext>(optionsAction =>
+                    optionsAction
+                    .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+
+    );
+
+builder.Services.AddDbContext<AuthDBContext>(optionsAction =>
+                    optionsAction
+                    .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+
+    );
+
+#endregion
+
+#region Identity
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AuthDBContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 3;
+
+});
+#endregion
 
 #region DI
 builder.Services.AddDbContext<PeliculasContext>(optionsAction => 
