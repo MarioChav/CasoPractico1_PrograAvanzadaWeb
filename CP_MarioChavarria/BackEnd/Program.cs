@@ -3,7 +3,6 @@ using BackEnd.Services.Interfaces;
 using DAL.Implementations;
 using DAL.Interfaces;
 using Entities.Entities;
-using Entities.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -50,14 +49,11 @@ builder.Services.Configure<IdentityOptions>(options =>
 #endregion
 
 #region DI
-builder.Services.AddDbContext<PeliculasContext>(optionsAction => 
-                                                                optionsAction
-                                                                             .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-    );
+
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
 builder.Services.AddScoped<IProgramaService, ProgramaService>();
 builder.Services.AddScoped<IProgramasDAL, ProgramasDAL>();
-
+//builder.Services.AddScoped<ITokenService, TokenService>();
 
 #endregion
 
