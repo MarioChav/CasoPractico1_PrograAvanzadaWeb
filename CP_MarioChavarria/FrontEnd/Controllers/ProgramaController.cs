@@ -16,6 +16,7 @@ namespace FrontEnd.Controllers
         // GET: ProgramaController
         public ActionResult Index()
         {
+            _programaHelper.Token = HttpContext.Session.GetString("Token");
             return View(_programaHelper.GetAll());
 
             //var Result = _programaHelper.GetProgramas();

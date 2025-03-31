@@ -10,9 +10,12 @@ namespace FrontEnd.Helpers.Implementations
     {
         IServiceRepository _serviceRepository;
 
+        public String Token { get; set; }
+
         public ProgramaHelper(IServiceRepository serviceRepository)
         {
             this._serviceRepository = serviceRepository;
+            
         }
 
         ProgramaViewModel Convertir(ProgramaAPI programa) 
@@ -91,6 +94,9 @@ namespace FrontEnd.Helpers.Implementations
 
         public List<ProgramaViewModel> GetAll() 
         {
+            _serviceRepository.Client.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token);
+
             List<ProgramaAPI> programas = new List<ProgramaAPI>();
             HttpResponseMessage responseMessage = _serviceRepository.GetResponse("api/programa");
 
