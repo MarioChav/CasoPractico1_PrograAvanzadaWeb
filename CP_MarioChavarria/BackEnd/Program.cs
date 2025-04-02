@@ -84,6 +84,9 @@ builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
 builder.Services.AddScoped<IProgramaService, ProgramaService>();
 builder.Services.AddScoped<IProgramasDAL, ProgramasDAL>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IParametroService, ParametroService>();
+builder.Services.AddScoped<IParametroDAL, ParametroDAL>();
+
 
 #endregion
 

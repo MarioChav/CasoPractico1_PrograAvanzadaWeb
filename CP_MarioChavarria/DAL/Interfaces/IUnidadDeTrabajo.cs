@@ -9,6 +9,7 @@ namespace DAL.Interfaces
     public interface IUnidadDeTrabajo : IDisposable
     {
         IProgramasDAL ProgramasDAL { get; }
+        IParametroDAL ParametroDAL { get; }
 
         bool Complete ();
     }

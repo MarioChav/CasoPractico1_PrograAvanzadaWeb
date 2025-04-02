@@ -12,13 +12,17 @@ namespace DAL.Implementations
     {
 
         public IProgramasDAL ProgramasDAL { get; set; }
+        public IParametroDAL ParametroDAL { get; set; }
 
         private PeliculasContext _peliculasContext;
 
-        public UnidadDeTrabajo(PeliculasContext peliculasContext, IProgramasDAL programasDAL)
+        public UnidadDeTrabajo(PeliculasContext peliculasContext, 
+            IProgramasDAL programasDAL, 
+            IParametroDAL parametroDAL)
         {
             this._peliculasContext = peliculasContext;
             this.ProgramasDAL = programasDAL;
+            this.ParametroDAL = parametroDAL;
 
         }
 
