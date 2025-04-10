@@ -19,6 +19,7 @@ builder.Services.AddSession();
 builder.Services.AddHttpClient<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IProgramaHelper, ProgramaHelper>();
+builder.Services.AddScoped<IParametroHelper, ParametroHelper>();
 builder.Services.AddScoped<ISecurityHelper, SecurityHelper>();
 
 

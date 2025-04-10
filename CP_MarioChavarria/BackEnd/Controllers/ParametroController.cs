@@ -33,12 +33,47 @@ namespace BackEnd.Controllers
             return Ok(parametro);
         }
 
-        // POST api/<ProgramaController>
+        //POST api/<ProgramaController>
         [HttpPost]
         public void Post([FromBody] ParametroDTO parametroDTO)
         {
             _parametroService.Add(parametroDTO);
+
         }
+
+        //[HttpPost]
+        //public IActionResult Post([FromBody] ParametroDTO parametroDTO)
+        //{
+        //    if (parametroDTO == null)
+        //    {
+        //        return BadRequest("The parametroDTO field is required.");
+        //    }
+        //    try
+        //    {
+        //        string descripcionString = "SGVsbG8gV29ybGQ=";
+        //        parametroDTO.Descripcion= Convert.FromBase64String(descripcionString);
+        //    }
+        //    catch (ArgumentException ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //    _parametroService.Add(parametroDTO);
+        //    return Ok();
+        //}
+
+        //[HttpPost]
+        //public IActionResult Post([FromBody] ParametroDTO parametroDTO)
+        //{
+        //    if (parametroDTO == null)
+        //    {
+        //        return BadRequest("The parametroDTO field is required.");
+        //    }
+
+        //    _parametroService.Add(parametroDTO);
+        //    return Ok();
+        //}
+
+
 
         // PUT api/<ProgramaController>/5
         [HttpPut]

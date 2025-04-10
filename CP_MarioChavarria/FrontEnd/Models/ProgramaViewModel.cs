@@ -10,5 +10,8 @@
 
         public int? Categoria { get; set; }
 
+        public IEnumerable<ParametroViewModel> Parametros { get; set; }
+        //public IEnumerable<ParametroViewModel> ParametrosC { get; set; }
+
     }
 }

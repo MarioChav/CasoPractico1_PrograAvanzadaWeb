@@ -19,12 +19,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tipo" class="control-label"></label>
-                <input asp-for="Tipo" class="form-control" />
-                <span asp-validation-for="Tipo" class="text-danger"></span>
+                @Html.DropDownListFor(model => model.Tipo, new SelectList(Model.Parametros, "ParametroId", "ParametroId"), "--Seleccione Tipo") @*En el segundo "ParametroId" es el Descripcion pero problemas con Byte*@
+                @*<input asp-for="Tipo" class="form-control" /> *@
+                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Categoria" class="control-label"></label>
-                <input asp-for="Categoria" class="form-control" />
+                @*<input asp-for="Categoria" class="form-control" />*@
+                @Html.DropDownListFor(modelC => modelC.Tipo, new SelectList(Model.Parametros, "ParametroId", "ParametroId"), "--Seleccione Categoria")
                 <span asp-validation-for="Categoria" class="text-danger"></span>
             </div>
             <div class="form-group">

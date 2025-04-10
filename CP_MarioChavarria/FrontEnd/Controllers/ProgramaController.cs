@@ -8,10 +8,12 @@ namespace FrontEnd.Controllers
     public class ProgramaController : Controller
     {
         IProgramaHelper _programaHelper;
+        IParametroHelper _parametroHelper;
 
-        public ProgramaController(IProgramaHelper programaHelper)
+        public ProgramaController(IProgramaHelper programaHelper, IParametroHelper parametroHelper)
         {
             _programaHelper = programaHelper;
+            _parametroHelper = parametroHelper;
         }
         // GET: ProgramaController
         public ActionResult Index()
@@ -39,6 +41,7 @@ namespace FrontEnd.Controllers
         public ActionResult Create()
         {
             ProgramaViewModel programa = new ProgramaViewModel();
+            programa.Parametros = _parametroHelper.GetAll();
             return View(programa);
 
 
@@ -67,6 +70,7 @@ namespace FrontEnd.Controllers
         public ActionResult Edit(int id)
         {
             ProgramaViewModel programa = _programaHelper.GetById(id);
+            programa.Parametros = _parametroHelper.GetAll();
             return View(programa);
         }
 

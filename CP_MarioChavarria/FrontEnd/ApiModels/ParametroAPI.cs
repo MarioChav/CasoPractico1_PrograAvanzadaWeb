@@ -1,11 +1,10 @@
-﻿namespace BackEnd.DTO
+﻿namespace FrontEnd.ApiModels
 {
-    public class ParametroDTO
+    public class ParametroAPI
     {
         public int ParametroId { get; set; }
 
         public byte[] Descripcion { get; set; } = null!;
 
-        
     }
 }

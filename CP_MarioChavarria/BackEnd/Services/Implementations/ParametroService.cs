@@ -2,6 +2,7 @@
 using BackEnd.Services.Interfaces;
 using DAL.Interfaces;
 using Entities.Entities;
+using System.Text;
 
 namespace BackEnd.Services.Implementations
 {
